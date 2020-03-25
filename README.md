@@ -15,11 +15,14 @@ pip install sengled-client
 
 ## Usage
 
+Create the API client:
+
 ```python
 import sengled
 
 api = sengled.api(
-    # The username/password that you used to create your mobile account in the Sengled Home app.
+    # The username/password that you used to create your mobile account in
+    # the Sengled Home app.
     username="your-username@example.com",
     password="your-secure-password",
 
@@ -30,25 +33,37 @@ api = sengled.api(
     # Prints details of the api request/responses when True, defaults to false.
     debug=True
 )
+```
 
-# Alternatively, set `SENGLED_*` environment variables that match
-# the api arguments.
+Alternatively, set `SENGLED_*` environment variables that match the api arguments.
+
+```python
+import sengled
+
 api = sengled.api_from_env()
+```
 
-# List all devices
+List all devices
 
+```python
 devices = api.get_device_details()
+```
 
-# Only colored lamps
+List lamps that support colors
 
+```python
 colored = api.filter_colored_lamps()
+```
 
-# Only lamps that support color temperature
+List lamps that support color temperature
 
+```python
 temperature = api.filter_color_temperature_lamps()
+```
 
-# The API can be used to modify a list of devices or single devices
+The API can be used to modify a list of devices or single devices
 
+```python
 api.set_on(devices)
 
 api.set_brightness(devices, 100)
@@ -60,21 +75,29 @@ api.set_color_temperature(temperature, 100)
 api.set_off(devices[0])
 
 api.set_on_off(devices, True)
+```
 
-# You can search for single lamps
+You can search for single devices
 
+```python
 api.find_by_id("B0CE18140000EB41") #=> SengledLampDevice
 
 api.find_by_name("Office Bulb 1")  #=> SengledLampDevice
+```
 
-# And finally you can operate directly on `SengledLampDevice`s
+And finally you can operate directly on `SengledLampDevice`s
+
+```python
 bulb = api.find_by_name("Office Bulb 1")
 bulb.on()
 bulb.set_brightness(50)
 bulb.set_color_temperature(50)
 bulb.toggle()
+```
 
-# Or chain the actions
+Or chain the actions:
+
+```python
 api.find_by_name("Office Bulb 2") \
    .on() \
    .set_brightness(50) \
