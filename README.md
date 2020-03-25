@@ -9,7 +9,9 @@ There are other accessories but this was only tested with these two devices:
 
 ## Installation
 
-TODO...
+```
+pip install sengled-client
+```
 
 ## Usage
 
