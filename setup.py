@@ -6,12 +6,12 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="sengled-client", # Replace with your own username
     version="0.0.1",
-    author="Marcelo Galas",
-    author_email="marcelo.galas@yahoo.com",
-    description="A simple python API client to control Sengled smart devices, based on vroy/python-sengled-client",
+    author="Vincent Roy",
+    author_email="vincentroy8@gmail.com",
+    description="A simple python API client to control Sengled smart devices",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/peanutsguy/python-sengled-client",
+    url="https://github.com/vroy/python-sengled-client",
     packages=["sengled"],
     classifiers=[
         "Programming Language :: Python :: 3",

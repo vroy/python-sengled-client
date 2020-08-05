@@ -112,4 +112,11 @@ if the `success` field is returned with a value of `False`.
 
 ## How this came about?
 
-This repository is a fork from [VROY's](https://github.com/vroy/python-sengled-client). Currently I've only added support for Sengled's Smart Plug
+This was reverse engineered from multiple different repositories found on GitHub
+as well as Charles.app and some guessing. See also:
+
+* https://github.com/j796160836/homebridge-sengled/
+* https://github.com/mpomery/sengled-element-postman/blob/master/Sengled%20Element%20API.postman_collection.json
+* https://github.com/sroehl/sengled-python
+* https://github.com/AHerridge/BetterSengled/blob/master/device.py
+* https://github.com/NoxPhoenix/noxbot/blob/68281bac10aa6a939f617d1ba148944338566491/clients/sengledClient.js
