@@ -1,11 +1,12 @@
 # Sengled Python Client
 
-A simple Python client to control [Sengled](https://sengled.com) [light] accessories.
+A simple Python client to control [Sengled](https://sengled.com) light and plug accessories.
 
-There are other accessories but this was only tested with these two devices:
+There are other accessories but this was only tested with these three devices:
 
 * A19 element color plus (E11-N1EA)
 * A19 element classic (E11-G13)
+* Smart plug (E1C-NB6)
 
 ## Installation
 
@@ -111,11 +112,4 @@ if the `success` field is returned with a value of `False`.
 
 ## How this came about?
 
-This was reverse engineered from multiple different repositories found on GitHub
-as well as Charles.app and some guessing. See also:
-
-* https://github.com/j796160836/homebridge-sengled/
-* https://github.com/mpomery/sengled-element-postman/blob/master/Sengled%20Element%20API.postman_collection.json
-* https://github.com/sroehl/sengled-python
-* https://github.com/AHerridge/BetterSengled/blob/master/device.py
-* https://github.com/NoxPhoenix/noxbot/blob/68281bac10aa6a939f617d1ba148944338566491/clients/sengledClient.js
+This repository is a fork from [VROY's](https://github.com/vroy/python-sengled-client). Currently I've only added support for Sengled's Smart Plug
