@@ -1,11 +1,12 @@
 # Sengled Python Client
 
-A simple Python client to control [Sengled](https://sengled.com) [light] accessories.
+A simple Python client to control [Sengled](https://sengled.com) light and plug accessories.
 
-There are other accessories but this was only tested with these two devices:
+There are other accessories but this was only tested with these three devices:
 
 * A19 element color plus (E11-N1EA)
 * A19 element classic (E11-G13)
+* Smart plug (E1C-NB6)
 
 ## Installation
 

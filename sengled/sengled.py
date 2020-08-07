@@ -65,7 +65,11 @@ class SengledLampDevice():
 
         self.is_online  = bool(int(data["attributes"]["isOnline"]))
         self.onoff      = bool(int(data["attributes"]["onoff"]))
-        self.brightness = int(data["attributes"]["brightness"])
+
+        if "brightness" in data["attributes"]:
+            self.brightness = int(data["attributes"]["brightness"])
+        else:
+            self.brightness = None
 
         if "colorTemperature" in data["attributes"]:
             self.color_temperature = int(data["attributes"]["colorTemperature"])
