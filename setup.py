@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sengled-client", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Vincent Roy",
     author_email="vincentroy8@gmail.com",
     description="A simple python API client to control Sengled smart devices",
