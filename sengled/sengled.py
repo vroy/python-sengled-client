@@ -135,11 +135,13 @@ class SengledLampDevice():
 
 class SengledAPI():
     BASE_URL = "https://element.cloud.sengled.com/zigbee"
+    MAX_RETRY_VALUE = 100
 
-    def __init__(self, username, password, session_path=None, debug=False):
+    def __init__(self, username, password, session_path=None, debug=False, retry=False):
         self.username = username
         self.password = password
         self.debug    = debug
+        self.retry    = retry
 
         self.session = SengledSession.load(session_path)
         self.login()
@@ -150,12 +152,26 @@ class SengledAPI():
         if self.session.is_valid():
             return
 
-        response = self._post("customer/login.json", {
+        parameter_hash = {
             "os_type": "android",
             "user": self.username,
             "pwd": self.password,
             "uuid": "xxxxxx"
-        })
+        }
+
+        response = self._post("customer/login.json", parameter_hash)
+        # The 'ret' parameter in the response indicates the following:
+        #   -1: System error (A problem with the Sengled servers)
+        #   0: Successfully authenticated
+        #   2: Incorrect password (用户名或密码错误)
+        #   3: Incorrect username (用户名不存在)
+        ret_value = response.json()["ret"]
+
+        iteration_value = 1
+        while self.retry and ret_value == -1 and iteration_value <= self.MAX_RETRY_VALUE:
+            response = self._post("customer/login.json", parameter_hash)
+            ret_value = response.json()["ret"]
+            iteration_value += 1
 
         self.session.logged_in(response.cookies)
 

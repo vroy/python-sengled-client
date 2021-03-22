@@ -11,7 +11,7 @@ There are other accessories but this was only tested with these three devices:
 ## Installation
 
 ```
-pip install sengled-client
+pip3 install sengled-client
 ```
 
 ## Usage
@@ -31,8 +31,11 @@ api = sengled.api(
     # starts and reduce the number of logins.
     session_path="/tmp/sengled.pickle",
 
-    # Prints details of the api request/responses when True, defaults to false.
+    # Prints details of the api request/responses when True, defaults to False.
     debug=True
+
+    # Retries login if no server response when True, defaults to False. (Max retry number is 100)
+    retry=True
 )
 ```
 
