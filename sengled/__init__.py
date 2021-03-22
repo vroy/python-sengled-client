@@ -17,10 +17,12 @@ def api_from_env():
     * SENGLED_PASSWORD
     * SENGLED_SESSION_PATH (optional)
     * SENGLED_DEBUG (optional, default: False)
+    * SENGLED_RETRY (optional, default: False)
     """
     return api(
         username     = os.environ["SENGLED_USERNAME"],
         password     = os.environ["SENGLED_PASSWORD"],
         session_path = os.environ.get("SENGLED_SESSION_PATH"),
         debug        = os.environ.get("SENGLED_DEBUG", "false").lower() in ["true", "1", "yes", "t"],
+        retry        = os.environ.get("SENGLED_RETRY", "false").lower() in ["true", "1", "yes", "t"]
     )
